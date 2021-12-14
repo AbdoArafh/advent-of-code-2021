@@ -69,21 +69,36 @@ class Board:
 
 
 class Game_master:
-    def __init__(self, raw_data):
+    def __init__(self, raw_data, part=1):
+        self.part = part
         arr = raw_data.strip().split("\n\n")
         self.turns = arr[0].strip().split(",")
         raw_boards = arr[1:]
         self.boards = [Board(x) for x in raw_boards]
     def start(self):
-        for turn in self.turns:
-            for board in self.boards:
-                board.play(turn)
-                isWinner = board.check_win()
-                if isWinner:
-                    log(board)
-                    return
+        if self.part == 1:
+            for turn in self.turns:
+                for board in self.boards:
+                    board.play(turn)
+                    isWinner = board.check_win()
+                    if isWinner:
+                        log(board)
+                        return
+        elif self.part == 2:
+            winner = False
+            for turn in self.turns:
+                for board in self.boards:
+                    if board.won: continue
+                    board.play(turn)
+                    isWinner = board.check_win()
+                    if isWinner:
+                        winner = board
+            print("-" * 20 + " Part Two " + "-" * 20)
+            log(winner)
 
 
 
-game_master = Game_master(open("input", 'r').read())
+game_master = Game_master(open("input", 'r').read(), 1)
+game_master.start()
+game_master = Game_master(open("input", 'r').read(), 2)
 game_master.start()
