@@ -8,6 +8,6 @@ This is my attempt this year to solve AOC and I hope I can do it all this year
 
 I'm realy proud of how this day went,
    
-Because it was very helpful that I used an OOP approach and had some cool visualizations at least in opinion
+Because it was very helpful that I used an OOP approach and had some cool visualizations at least in my opinion
 
 ![day4-screenshot](assets/day4.png)
