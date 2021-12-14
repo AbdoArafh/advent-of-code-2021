@@ -33,7 +33,7 @@ class Board:
         for i in self.grid:
             for j in i:
                 if j["checked"]:
-                    print('\x1b[6;0;42m' + format(j) + '\x1b[0m', end=" ")
+                    print('\x1b[6;0;42m' + format(j) + " " + '\x1b[0m', end="")
                 else:
                     print(format(j), end=" ")
             print()
